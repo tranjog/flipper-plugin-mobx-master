@@ -4,9 +4,13 @@ import { Layout, Panel } from "flipper-plugin";
 
 interface IActionEmitter {
   onEmitAction: (payload: any) => void;
+  selectedAction: string;
 }
 
-export const ActionEmitter: React.FC<IActionEmitter> = ({ onEmitAction }) => {
+export const ActionEmitter: React.FC<IActionEmitter> = ({
+  onEmitAction,
+  selectedAction,
+}) => {
   const [payload, setPayload] = useState("");
   const inputHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     e.preventDefault();
@@ -19,7 +23,11 @@ export const ActionEmitter: React.FC<IActionEmitter> = ({ onEmitAction }) => {
           onChange={inputHandler}
           style={{ margin: 8, width: "calc(100% - 16px)", height: 54 }}
         />
-        <Button style={{ margin: 8 }} onClick={() => onEmitAction(payload)}>
+        <Button
+          disabled={!selectedAction}
+          style={{ margin: 8 }}
+          onClick={() => onEmitAction(payload)}
+        >
           Emit action
         </Button>
       </Panel>

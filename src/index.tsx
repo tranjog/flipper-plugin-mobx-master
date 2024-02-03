@@ -128,7 +128,10 @@ export function Component() {
         selectedAction={selectedAction}
         onActionSelect={handleActionSelect}
       />
-      <ActionEmitter onEmitAction={onEmitAction} />
+      <ActionEmitter
+        onEmitAction={onEmitAction}
+        selectedAction={selectedAction}
+      />
       <ActionsTable data={allData} onSelect={onRowHighlighted} clear={clear} />
       <Sidebar actions={allData} selectedID={selectedID} />
     </Layout.Container>
