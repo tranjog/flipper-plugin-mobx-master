@@ -20,4 +20,4 @@ Manage Plugins > Install Plugins > search "mobx-master" > Install
 
 ## Acknowledgement
 
-This plugin stands on shoulders of giants, and is largely inspired by [mobx-action-flipper](https://github.com/chvanlennep/mobx-action-flipper) and [mobx-flipper](https://github.com/khorark/mobx-flipper).
+This plugin stands on shoulders of giants, and is greatly inspired by [mobx-action-flipper](https://github.com/chvanlennep/mobx-action-flipper) and [mobx-flipper](https://github.com/khorark/mobx-flipper).
