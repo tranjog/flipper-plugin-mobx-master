@@ -14,7 +14,7 @@ import { StoreSelector } from "./StoreSelector";
 import { ActionEmitter } from "./ActionEmitter";
 import { ActionSelector } from "./ActionSelector";
 import { ActionsTable } from "./ActionsTable";
-import type { Events, Requests, Row, Settings } from "./types";
+import type { EmitAction, Events, Requests, Row, Settings } from "./types";
 
 export function plugin(client: PluginClient<Events, Requests>) {
   const allData = createDataSource<Row, "id">([], { key: "id" });
@@ -67,12 +67,8 @@ export function plugin(client: PluginClient<Events, Requests>) {
     client.send("message", str);
   };
 
-  const emitAction = (store: string, action: string, payload: any) => {
-    client.send("emitAction", {
-      storeKey: store,
-      action,
-      payload,
-    });
+  const emitAction = (emitObj: EmitAction) => {
+    client.send("emitAction", emitObj);
   };
 
   return { allData, settings, onStoreSelected, logger, clear, emitAction };
@@ -113,7 +109,11 @@ export function Component() {
     logger(
       `Emit action: ${selectedStore}.${selectedAction} with payload ${payload}`
     );
-    emitAction(selectedStore, selectedAction, payload);
+    emitAction({
+      storeKey: selectedStore,
+      action: selectedAction,
+      payload,
+    });
   };
 
   return (

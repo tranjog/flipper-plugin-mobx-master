@@ -3,7 +3,11 @@ export type Events = {
   init: Settings;
 };
 
-type EmitAction = { storeKey: string; action: string; payload: any };
+export type EmitAction = {
+  storeKey: string;
+  action: string;
+  payload: any;
+};
 
 export type Requests = {
   message: (str: string) => Promise<any>;
