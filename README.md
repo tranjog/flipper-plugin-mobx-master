@@ -9,7 +9,7 @@ https://github.com/tranjog/flipper-plugin-mobx-master/assets/6737260/80169577-88
 
 ## Installation
 
-1. TBC: Link to github repo with example app
+1. Please see the demo app repository: [mobx-master-demo-app](https://github.com/tranjog/mobx-master-demo-app) for an example of how to implement the React Native middleware.
 
 2. Install [flipper-plugin-mobx-master](https://github.com/tranjog/flipper-plugin-mobx-master) in the Flipper desktop client:
 
