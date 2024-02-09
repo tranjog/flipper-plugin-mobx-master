@@ -38,8 +38,8 @@ export const ActionEmitter: React.FC<IActionEmitter> = ({
               return y.trim();
             }
             if (i === 1) {
-              if (y === "true") return true;
-              if (y === "false") return false;
+              if (y === "true" || y === true) return true;
+              if (y === "false" || y === false) return false;
               if (!Number.isNaN(Number(y))) return Number(y);
               return y.trim();
             }

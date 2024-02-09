@@ -1,20 +1,20 @@
-export type Events = {
+export interface Events {
   action: Row;
   init: Settings;
-};
+}
 
-export type EmitAction = {
+export interface EmitAction {
   storeKey: string;
   action: string;
   payload: any;
-};
+}
 
-export type Requests = {
+export interface Requests {
   message: (str: string) => Promise<any>;
   emitAction: (emit: EmitAction) => Promise<any>;
-};
+}
 
-export type Row = {
+export interface Row {
   id: string;
   actionName: string;
   action: {
@@ -28,14 +28,14 @@ export type Row = {
   after: object;
   storeName: string;
   isAsyncStoragePresent?: boolean;
-};
+}
 
-export type Store = Record<string, { actions: string[] }>;
-
-export type Settings = {
+export interface Settings {
   storeList: { id: string; title: string; actions: string[] }[];
   stores: Store[];
-};
+}
+
+export type Store = Record<string, { actions: string[] }>;
 
 export enum TabLabel {
   state = "StateTree",
