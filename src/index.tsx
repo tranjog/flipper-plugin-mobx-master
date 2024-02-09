@@ -30,14 +30,16 @@ export function plugin(client: PluginClient<Events, Requests>) {
       );
 
       draft.storeList = [{ title: "All Stores", id: "0", actions: [] }].concat(
-        storeEntries.map(
-          (store) =>
-            ({
-              id: store[0],
-              title: store[0],
-              actions: (store[1].actions as unknown as never[]) ?? [],
-            } ?? [])
-        )
+        storeEntries
+          .map(
+            (store) =>
+              ({
+                id: store[0],
+                title: store[0],
+                actions: (store[1].actions as unknown as never[]) ?? [],
+              } ?? [])
+          )
+          .sort((a, b) => (a.title > b.title ? 1 : -1))
       );
     });
     allData.view.setSortBy("startTime");
